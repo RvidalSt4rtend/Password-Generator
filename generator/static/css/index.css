@@ -1,0 +1,36 @@
+
+.bg-blue {
+    background-color:rgb(9, 50, 67);
+}
+
+#password-display {
+    border: 1px solid #ccc;
+    padding: 8px;
+    resize: none;
+}
+
+h1 {
+    color: white;
+    font-size: 20px;
+}
+.letra{
+    color: white;
+    display: inline-block; /* Asegura que el span sea visible */
+    margin-left: 10px;
+}
+
+.btn-primary {
+    border: none;
+}
+
+.copy-message {
+    transition: background-color 0.5s; 
+}
+
+.copy-message.copied {
+    background-color: #0eb632bd; 
+}
+
+.bg-yellow {
+    background-color: #9b772a;
+}

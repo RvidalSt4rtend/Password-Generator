@@ -6,16 +6,41 @@ function generatePassword() {
     fetch(`/generate-password?length=${length}&numbers=${includeNumbers ? 'on' : 'off'}&special=${includeSpecial ? 'on' : 'off'}`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('password-display').textContent = data.password;
-            document.getElementById('copy-message').textContent = 'Password not Copied'; // Restaurar el mensaje
-            document.getElementById('copy-message-container').classList.remove('copied'); // Eliminar la clase 'copied'
-        });
+            // Obtener la contraseña generada
+            const password = data.password;
 
+            // Resaltar los números en azul y los símbolos en rojo
+            let highlightedPassword = '';
+            for (let i = 0; i < password.length; i++) {
+                const char = password[i];
+                if (/\d/.test(char)) {
+                    highlightedPassword += `<span class="numbers">${char}</span>`;
+                } else if (/[^\w\s]/.test(char)) {
+                    highlightedPassword += `<span class="symbol">${char}</span>`;
+                } else {
+                    highlightedPassword += char;
+                }
+            }
+
+            // Mostrar la contraseña resaltada en el div
+            document.getElementById('password-display').innerHTML = highlightedPassword;
+            // Restaurar el mensaje
+            document.getElementById('copy-message').textContent = 'Password not Copied';
+            document.getElementById('copy-message-container').classList.remove('copied');
+        });
+}
+
+
+
+
+// Agregar el evento 'click' al botón de generación de contraseña
 document.getElementById('generate-button').addEventListener('click', generatePassword);
+
+// Agregar el evento 'input' al campo de longitud de contraseña
 document.getElementById('length').addEventListener('input', (event) => {
     document.getElementById('length-value').textContent = event.target.value;
 });
-}
+
 
 
 window.addEventListener('load', () => {
@@ -24,7 +49,7 @@ window.addEventListener('load', () => {
 });
 
 document.getElementById('copy-button').addEventListener('click', () => {
-    const password = document.getElementById('password-display').value;
+    const password = document.getElementById('password-display').textContent;
     navigator.clipboard.writeText(password)
         .then(() => {
             document.getElementById('copy-message').textContent = 'Password Copied';
@@ -35,13 +60,3 @@ document.getElementById('copy-button').addEventListener('click', () => {
         });
 });
 
-
-// Función para ajustar dinámicamente la altura del div
-function ajustarAlturaDiv() {
-    const div = document.getElementById('password-display');
-    div.style.height = 'auto'; // Restablecer la altura a 'auto' para recalcular
-    div.style.height = div.scrollHeight + 'px'; // Ajustar la altura al scrollHeight
-}
-
-// Llamar a la función para ajustar la altura inicialmente
-ajustarAlturaDiv();

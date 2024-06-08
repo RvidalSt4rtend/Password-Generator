@@ -18,4 +18,5 @@ def generate_password(request):
         characters += string.punctuation
 
     password = ''.join(random.choice(characters) for _ in range(length))
+    print(password)
     return JsonResponse({'password': password})

@@ -4,27 +4,55 @@
 }
 
 #password-display {
-    border: 1px solid #ccc;
-    padding: 8px;
-    resize: none;
+    height: auto; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+    font-family: 'Gill Sans'; 
+    font-size: 24px; 
+    line-height: 1.5; 
+    transition: height 1s ease;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
+
+.form-control .numbers {
+    color: blue;
+}
+
+.form-control .symbol {
+    color: rgb(153, 10, 10);
+}
+
 
 h1 {
     color: white;
     font-size: 20px;
 }
+
 .letra{
     color: white;
     display: inline-block; /* Asegura que el span sea visible */
     margin-left: 10px;
 }
 
+
+
 .btn-primary {
     border: none;
 }
 
 .copy-message {
-    transition: background-color 0.5s; 
+    transition: background-color 0.5s;
+    padding: 5px;
+    width: 15rem;
+    margin: 0 auto; 
+    border-radius: 10px;
 }
 
 .copy-message.copied {
@@ -32,5 +60,6 @@ h1 {
 }
 
 .bg-yellow {
-    background-color: #9b772a;
+    background-color: #cec10e;
+    size: 20px;
 }

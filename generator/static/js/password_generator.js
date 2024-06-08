@@ -6,31 +6,37 @@ function generatePassword() {
     fetch(`/generate-password?length=${length}&numbers=${includeNumbers ? 'on' : 'off'}&special=${includeSpecial ? 'on' : 'off'}`)
         .then(response => response.json())
         .then(data => {
-            // Obtener la contraseña generada
+
             const password = data.password;
 
-            // Resaltar los números en azul y los símbolos en rojo
-            let highlightedPassword = '';
+            const passwordDisplay = document.getElementById('password-display');
+            passwordDisplay.textContent = ''; // Limpiar cualquier contenido previo
+            const validClasses = ['numbers', 'symbol'];
+
             for (let i = 0; i < password.length; i++) {
                 const char = password[i];
                 if (/\d/.test(char)) {
-                    highlightedPassword += `<span class="numbers">${char}</span>`;
+                    const span = document.createElement('span');
+                    span.classList.add('numbers');
+                    span.textContent = char;
+                    passwordDisplay.appendChild(span);
                 } else if (/[^\w\s]/.test(char)) {
-                    highlightedPassword += `<span class="symbol">${char}</span>`;
+                    const span = document.createElement('span');
+                    span.classList.add('symbol');
+                    span.textContent = char;
+                    passwordDisplay.appendChild(span);
                 } else {
-                    highlightedPassword += char;
+                    passwordDisplay.appendChild(document.createTextNode(char));
                 }
             }
-
-            // Mostrar la contraseña resaltada en el div
-            document.getElementById('password-display').innerHTML = highlightedPassword;
             // Restaurar el mensaje
             document.getElementById('copy-message').textContent = 'Password not Copied';
             document.getElementById('copy-message-container').classList.remove('copied');
+        })
+        .catch(error => {
+            console.error('Error al generar la contraseña: ', error);
         });
 }
-
-
 
 
 // Agregar el evento 'click' al botón de generación de contraseña

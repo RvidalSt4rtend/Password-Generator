@@ -3,7 +3,7 @@ from .local import BASE_DIR
 import os
 
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = [os.environ['HOSTS']]
+ALLOWED_HOSTS = os.environ('HOSTS').split(',')
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['HOSTS']]
 DEBUG = os.environ['DEBUG']
 

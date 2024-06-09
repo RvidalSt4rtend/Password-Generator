@@ -34,5 +34,6 @@ def generate_password(request):
     
     # Mezcla la contraseña para evitar patrones predecibles
     secrets.SystemRandom().shuffle(password)
+    password = ''.join(password)
     
-    return JsonResponse({'password': ''.join(password)})
+    return JsonResponse({'password': password})

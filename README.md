@@ -1,13 +1,16 @@
 # Password Generator
 This Django application generates secure passwords. It is designed to work both locally and in Azure Web Apps.
 
-Features
-Random Password Generation: Create secure and random passwords with customizable length and character sets.
-User-Friendly Interface: Simple and intuitive web interface to generate passwords easily.
-Deployment Ready: Configured to run seamlessly both locally and on Azure Web Apps.
+DEMO:
+https://password-generator.st4rtend.com/ 
 
-Installation
-## Local Setup
+Features
+- Random Password Generation: Create secure and random passwords with customizable length and character sets.
+- User-Friendly Interface: Simple and intuitive web interface to generate passwords easily.
+- Deployment Ready: Configured to run seamlessly both locally and on Azure Web Apps.
+
+
+## Installation Local Setup
 Clone the Repository:
 
 1. git clone https://github.com/yourusername/password-generator.git

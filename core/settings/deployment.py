@@ -6,6 +6,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 SECRET_KEY = os.environ['SECRET']
 allowed_hosts = os.environ.get('HOSTS', '').split(',')
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts if host.strip()]
+"ALLOWED_HOSTS=os.environ('ALLOWED_HOSTS').split(',')"
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['HOSTS']]
 
 MIDDLEWARE = [

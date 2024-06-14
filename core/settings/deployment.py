@@ -2,11 +2,11 @@ from .local import *
 from .local import BASE_DIR
 import os
 
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 SECRET_KEY = os.environ['SECRET']
 allowed_hosts = os.environ.get('HOSTS', '').split(',')
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts if host.strip()]
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['HOSTS']]
-DEBUG = os.environ['DEBUG']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

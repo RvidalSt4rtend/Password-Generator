@@ -5,9 +5,7 @@ load_dotenv()
 
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG')
-os.getenv('ALLOWED_HOSTS').split(',')
-
+ALLOWED_HOSTS=os.getenv('ALLOWED_HOSTS').split(',')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

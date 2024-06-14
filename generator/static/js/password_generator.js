@@ -3,7 +3,7 @@ function generatePassword() {
     const includeNumbers = document.getElementById('include-numbers').checked;
     const includeSpecial = document.getElementById('include-special').checked;
 
-    fetch(`/generate-password?length=${length}&numbers=${includeNumbers ? 'on' : 'off'}&special=${includeSpecial ? 'on' : 'off'}`)
+    fetch(`/generate-password/?length=${length}&numbers=${includeNumbers ? 'on' : 'off'}&special=${includeSpecial ? 'on' : 'off'}`)
         .then(response => response.json())
         .then(data => {
 

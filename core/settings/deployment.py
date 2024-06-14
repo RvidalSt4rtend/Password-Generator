@@ -4,8 +4,9 @@ import os
 
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = os.environ['WEBSITE_HOSTNAME']
-CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['HOSTS']]
+ALLOWED_HOSTS = ['.st4rtend.com']
+subdomain = os.environ.get('HOST', '')
+CSRF_TRUSTED_ORIGINS = [f'https://{subdomain}.st4rtend.com'] if subdomain else []
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

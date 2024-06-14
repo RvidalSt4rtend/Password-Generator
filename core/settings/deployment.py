@@ -2,9 +2,9 @@ from .local import *
 from .local import BASE_DIR
 import os
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = os.environ.get('DEBUG')
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = ['.st4rtend.com']
+ALLOWED_HOSTS = ['.st4rtend.com',os.environ.get('HOST')]
 subdomain = os.environ.get('HOST', '')
 CSRF_TRUSTED_ORIGINS = [f'https://{subdomain}.st4rtend.com'] if subdomain else []
 

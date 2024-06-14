@@ -1,11 +1,13 @@
 from .base import *
 from dotenv import load_dotenv
 import os
-load_dotenv()
 
-DEBUG=False
-SECRET_KEY = os.getenv('SECRET_KEY')
-ALLOWED_HOSTS=os.getenv('ALLOWED_HOSTS').split(',')
+
+
+SECRET_KEY = 'your-local-secret-key'
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = []
+DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

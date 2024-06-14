@@ -4,7 +4,7 @@ import os
 
 
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = ['password-generator.st4rtend.com']
+ALLOWED_HOSTS = ['password-generator.st4rtend.com','generator-password.azurewebsites.net']
 DEBUG = False
 
 MIDDLEWARE = [

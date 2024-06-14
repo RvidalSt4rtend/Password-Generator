@@ -10,9 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
-<body class="d-flex align-items-center justify-content-center vh-100 bg-blue">
-    <div class="container">
+<body class="d-flex align-items-center justify-content-center vh-100 bg-blue ">
+  
+    <div class="logo-container pt-5">
+        <div class="logo">
+            <h1 class="logo">
+                ST4RTEND
+            </h1>
+        </div>
+    </div>
         {% block content %}
         {% endblock %}
     </div>

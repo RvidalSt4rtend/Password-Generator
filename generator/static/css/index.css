@@ -1,6 +1,6 @@
 
 .bg-blue {
-    background-color:rgb(9, 50, 67);
+    background-color:#080c14;
 }
 
 #password-display {
@@ -62,4 +62,24 @@ h1 {
 .bg-yellow {
     background-color: #cec10e;
     size: 20px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajusta la altura según sea necesario */
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+.logo {
+    font-size: 100px;
+    font-style: italic;
+    font-weight: 700;
 }

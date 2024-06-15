@@ -18,9 +18,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('generator/static')),)
+STATIC_URL = '/static/'
 
 connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
 parameters = {pair.split('=')[0]: pair.split('=')[1] for pair in connection_string.split(' ')}

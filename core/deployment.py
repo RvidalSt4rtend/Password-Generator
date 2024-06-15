@@ -3,7 +3,7 @@ from .settings import BASE_DIR
 import os
 
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'https://secure-passwords.st4rtend.com/']
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'secure-passwords.st4rtend.com']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
 DEBUG = os.environ['DEBUG']
 

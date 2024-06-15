@@ -1,12 +1,11 @@
 from .settings import *
 from .settings import BASE_DIR
-from dotenv import load_dotenv
 import os
-load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG')
-ALLOWED_HOSTS =['generator-password.st4rtend.com','password-generator.st4rtend.com']
+SECRET_KEY = os.environ['SECRET']
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'https://secure-passwords.st4rtend.com/']
+CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
+DEBUG = os.environ['SECRET']
 
 
 # Application definition

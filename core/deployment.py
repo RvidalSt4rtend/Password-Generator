@@ -6,9 +6,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
-os.getenv('ALLOWED_HOSTS').split(',')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
-DEBUG = False
+ALLOWED_HOSTS =[]
 
 
 # Application definition
@@ -102,6 +100,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

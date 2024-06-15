@@ -5,8 +5,7 @@ import os
 SECRET_KEY = os.environ['SECRET']
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'secure-passwords.st4rtend.com']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
-DEBUG = os.environ['DEBUG']
-
+DEBUG = False
 
 # Application definition
 

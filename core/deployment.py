@@ -6,7 +6,7 @@ import os
 SECRET_KEY = os.environ['SECRET']
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'password-generator.st4rtend.com']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
-DEBUG = 0
+DEBUG = True``
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,12 +1,12 @@
-from .local import *
-from .local import BASE_DIR
+from .settings import *
+from .settings import BASE_DIR
 import os
 
 
 SECRET_KEY = os.environ['SECRET']
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'password-generator.st4rtend.com']
 CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
-DEBUG = False
+DEBUG = 0
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -18,8 +18,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
@@ -34,3 +34,16 @@ DATABASES = {
         'PASSWORD': parameters['password'],
     }
 }
+
+SESSION_COOKIE_SECURE = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
+SESSION_COOKIE_NAME = 'sessionid'  
+SESSION_COOKIE_AGE = 10000 
+# Aviso de seguridad W016
+# Configurar CSRF_COOKIE_SECURE a True.
+CSRF_COOKIE_SECURE = True
+
+# Otros ajustes de seguridad recomendados
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'

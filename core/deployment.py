@@ -2,7 +2,7 @@ import os
 
 from .settings import *  
 from .settings import BASE_DIR
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'],'secure-passwords.st4rtend.com'] if 'WEBSITE_HOSTNAME' in os.environ else []
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
